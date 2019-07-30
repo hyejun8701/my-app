@@ -8,6 +8,8 @@
 
 <script>
 import HelloWorld from './components/HelloWorld'
+import store from '@/store.js'
+console.log(store.state.count)
 
 export default {
   name: 'App',
