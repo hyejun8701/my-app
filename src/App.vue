@@ -1,23 +1,28 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <HelloWorld/>
-    github netlify test
+    <!-- <HelloWorld/>
+    github netlify test -->
+      <p>{{ message }}</p>
+      <EditForm />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+// import HelloWorld from './components/HelloWorld'
 // import store from '@/store.js'
 // console.log(store.state.count)
 
 // store.commit('increment')
 // console.log(store.state.count)
 
+import EditForm from '@/components/EditForm'
+
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // HelloWorld,
+    EditForm
   },
   data() {
     return {
@@ -38,6 +43,11 @@ export default {
     
     this.$store.dispatch('actionType', 12)
     console.log(this.$store.state.count)
+  },
+  computed: {
+    message() {
+      return this.$store.getters.message
+    }
   }
 }
 </script>

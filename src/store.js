@@ -7,7 +7,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         count: 0,
-        message: '메세지',
+        message: '초기 메세지',
         list: [
             { id: 1, name: 'apple', price: 100 },
             { id: 2, name: 'banana', price: 200 },
@@ -21,6 +21,9 @@ const store = new Vuex.Store({
         increment: state => { state.count++ },
         mutationType(state, payload) {
             state.count = payload
+        },
+        setMessage(state, payload) {
+            state.message = payload.message
         }
     },
     getters: {
@@ -37,11 +40,17 @@ const store = new Vuex.Store({
         },
         name(state, getters) {
             return id => getters.item(id).name
+        },
+        message(state) {
+            return state.message
         }
     },
     actions: {
         actionType({ commit }, payload) {
             commit('mutationType', payload)
+        },
+        doUpdate({ commit }, message) {
+            commit('setMessage', { message })
         }
     }
 })
