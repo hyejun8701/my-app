@@ -9,7 +9,7 @@ const store = new Vuex.Store({
         count: 0
     },
     mutations: {
-        increment() {
+        increment(state) {
             state.count++
         }
     }
