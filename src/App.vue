@@ -19,12 +19,25 @@ export default {
   components: {
     HelloWorld
   },
+  data() {
+    return {
+    }
+  },
   created() {
     console.log(this.$store.state.count)
     this.$store.commit('increment')
     console.log(this.$store.state.count)
 
     console.log(this.$store.state.message)
+
+    console.log(this.$store.getters.count)
+    console.log(this.$store.getters.item(1))
+
+    this.$store.commit('mutationType', 11)
+    console.log(this.$store.state.count)
+    
+    this.$store.dispatch('actionType', 12)
+    console.log(this.$store.state.count)
   }
 }
 </script>
