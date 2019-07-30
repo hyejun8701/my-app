@@ -1,6 +1,7 @@
 import 'babel-polyfill'
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 
 Vue.use(Vuex)
 
@@ -52,7 +53,9 @@ const store = new Vuex.Store({
         doUpdate({ commit }, message) {
             commit('setMessage', { message })
         }
-    }
+    },
+    computed:mapGetters(['message']),
+    methods:mapActions(['add', 'update', 'remove'])
 })
 
 export default store

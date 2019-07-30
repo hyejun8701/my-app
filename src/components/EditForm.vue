@@ -19,7 +19,8 @@ export default {
     },
     methods: {
         doUpdate(event) {
-            this.$store.dispatch('doUpdate', event.target.value)
+            //this.$store.dispatch('doUpdate', event.target.value)
+            this.add(event.target.value)
         }
     }
 }
