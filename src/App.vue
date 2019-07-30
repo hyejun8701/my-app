@@ -8,16 +8,21 @@
 
 <script>
 import HelloWorld from './components/HelloWorld'
-import store from '@/store.js'
-console.log(store.state.count)
+// import store from '@/store.js'
+// console.log(store.state.count)
 
-store.commit('increment')
-console.log(store.state.count)
+// store.commit('increment')
+// console.log(store.state.count)
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  created() {
+    console.log(this.$store.state.count)
+    this.$store.commit('increment')
+    console.log(this.$store.state.count)
   }
 }
 </script>
